@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AI Clinical Decision Support — Multilingual Grounded RAG Chat" />
+  <title>MA3AK</title>
+
+  <!-- Multilingual fonts: Latin · Arabic/Persian/Urdu · CJK · Devanagari · Thai · Greek -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Sans+Devanagari:wght@300;400;500;700&family=Noto+Sans+Thai:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/ui/css/styles.css?v=3" />
+</head>
+<body>
+<div id="app">
+
+  <!-- ── HEADER ── -->
+  <header class="header" id="main-header" role="banner">
+    <div class="header-brand">
+      <div class="logo" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="8" fill="#0ea5e9"/>
+          <path d="M16 9v14M9 16h14" stroke="white" stroke-width="2.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name" id="brand-name">MA3AK</span>
+        <span class="brand-sub" id="brand-sub">RAG System</span>
+      </div>
+    </div>
+
+    <nav class="header-nav" role="navigation" aria-label="Main navigation">
+
+      <!-- Language Selector -->
+      <div class="lang-container" id="lang-container">
+        <button class="lang-btn" id="lang-btn"
+                aria-haspopup="listbox" aria-expanded="false"
+                aria-label="Select language">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+          </svg>
+          <span id="lang-label">English</span>
+          <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+
+        <div class="lang-dropdown" id="lang-dropdown" role="listbox"
+             aria-label="Language list" hidden>
+          <div class="lang-search-wrap">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+            <input class="lang-search" id="lang-search" type="search"
+                   autocomplete="off" spellcheck="false" />
+          </div>
+          <ul class="lang-list" id="lang-list" role="group"></ul>
+        </div>
+      </div>
+
+      <!-- New Chat -->
+      <button class="new-chat-btn" id="new-chat-btn" aria-label="Start new chat">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M12 5v14M5 12h14"/>
+        </svg>
+        <span id="new-chat-label">New Chat</span>
+      </button>
+
+    </nav>
+  </header>
+
+  <!-- ── CHAT ── -->
+  <main class="chat-wrap" id="chat-wrap" role="main">
+
+    <div class="msg-list" id="msg-list" role="log" aria-live="polite"
+         aria-label="Conversation">
+
+      <!-- Empty / Welcome state -->
+      <div class="empty-state" id="empty-state" aria-hidden="false">
+        <div class="empty-icon" aria-hidden="true">
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+            <rect width="56" height="56" rx="14" fill="rgba(14,165,233,0.12)"/>
+            <path d="M28 14v28M14 28h28" stroke="#0ea5e9"
+                  stroke-width="3.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h1 class="empty-title" id="empty-title">MA3AK</h1>
+        <p class="empty-sub" id="empty-sub">
+          Ask a question based on the available clinical evidence.
+        </p>
+        <div class="examples" id="examples" role="list">
+          <button class="ex-btn" id="ex-btn-0" role="listitem"></button>
+          <button class="ex-btn" id="ex-btn-1" role="listitem"></button>
+          <button class="ex-btn" id="ex-btn-2" role="listitem"></button>
+        </div>
+      </div>
+
+    </div><!-- /msg-list -->
+
+    <!-- ── INPUT ── -->
+    <div class="input-bar" role="form" aria-label="Message composer">
+      <div class="input-inner" id="input-inner">
+        <textarea id="chat-input" class="chat-input" rows="1"
+                  dir="auto" aria-label="Type your question"
+                  aria-multiline="true"></textarea>
+        <button class="send-btn" id="send-btn" disabled
+                aria-label="Send message">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"
+                  stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      <p class="input-hint" id="input-hint"></p>
+    </div>
+
+  </main><!-- /chat-wrap -->
+
+</div><!-- /app -->
+
+<script src="/ui/js/languages.js?v=3"></script>
+<script src="/ui/js/api.js?v=3"></script>
+<script src="/ui/js/state.js?v=3"></script>
+<script src="/ui/js/app.js?v=3"></script>
+</body>
+</html>

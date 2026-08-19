@@ -1,0 +1,135 @@
+{
+  "summary": {
+    "total_tests": 10,
+    "answer_rate": "37.5%",
+    "rejection_rate": "100.0%",
+    "confidence_accuracy": "50.0%",
+    "keyword_coverage": "73.3%",
+    "citation_integrity": "100.0%",
+    "avg_retrieval_score": 0.6304,
+    "avg_response_time": "7.07s",
+    "overall_score": 65.9
+  },
+  "details": [
+    {
+      "id": 1,
+      "category": "Treatment Target",
+      "confidence": "high",
+      "confidence_correct": true,
+      "avg_retrieval_score": 0.7622,
+      "keyword_hit_rate": 1.0,
+      "citations_count": 1,
+      "hallucinated_citation": false,
+      "response_time_sec": 18.12,
+      "answer_preview": "The recommended target blood pressure goals according to WHO guidelines are: 1) <140/90 mmHg for all hypertensive patien..."
+    },
+    {
+      "id": 2,
+      "category": "Pharmacotherapy",
+      "confidence": "high",
+      "confidence_correct": true,
+      "avg_retrieval_score": 0.6788,
+      "keyword_hit_rate": 0.67,
+      "citations_count": 1,
+      "hallucinated_citation": false,
+      "response_time_sec": 10.2,
+      "answer_preview": "For adults with hypertension requiring pharmacological treatment, the WHO recommends using drugs from any of the followi..."
+    },
+    {
+      "id": 3,
+      "category": "Treatment Initiation",
+      "confidence": "high",
+      "confidence_correct": true,
+      "avg_retrieval_score": 0.7238,
+      "keyword_hit_rate": 0.6,
+      "citations_count": 1,
+      "hallucinated_citation": false,
+      "response_time_sec": 21.63,
+      "answer_preview": "Pharmacological antihypertensive treatment should be initiated in individuals with a confirmed diagnosis of hypertension..."
+    },
+    {
+      "id": 4,
+      "category": "Lifestyle",
+      "confidence": "insufficient",
+      "confidence_correct": false,
+      "avg_retrieval_score": 0.6087,
+      "keyword_hit_rate": 0.0,
+      "citations_count": 0,
+      "hallucinated_citation": false,
+      "response_time_sec": 2.08,
+      "answer_preview": "Gemini API request failed: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, ..."
+    },
+    {
+      "id": 5,
+      "category": "Definition",
+      "confidence": "insufficient",
+      "confidence_correct": false,
+      "avg_retrieval_score": 0.6845,
+      "keyword_hit_rate": 0.0,
+      "citations_count": 0,
+      "hallucinated_citation": false,
+      "response_time_sec": 2.03,
+      "answer_preview": "Gemini API request failed: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, ..."
+    },
+    {
+      "id": 6,
+      "category": "Risk Stratification",
+      "confidence": "insufficient",
+      "confidence_correct": false,
+      "avg_retrieval_score": 0.6049,
+      "keyword_hit_rate": 0.0,
+      "citations_count": 0,
+      "hallucinated_citation": false,
+      "response_time_sec": 1.66,
+      "answer_preview": "Gemini API request failed: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, ..."
+    },
+    {
+      "id": 7,
+      "category": "Combination Therapy",
+      "confidence": "insufficient",
+      "confidence_correct": false,
+      "avg_retrieval_score": 0.6734,
+      "keyword_hit_rate": 0.0,
+      "citations_count": 0,
+      "hallucinated_citation": false,
+      "response_time_sec": 1.82,
+      "answer_preview": "Gemini API request failed: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, ..."
+    },
+    {
+      "id": 8,
+      "category": "Special Populations",
+      "confidence": "insufficient",
+      "confidence_correct": false,
+      "avg_retrieval_score": 0.6265,
+      "keyword_hit_rate": 0.0,
+      "citations_count": 0,
+      "hallucinated_citation": false,
+      "response_time_sec": 1.46,
+      "answer_preview": "Gemini API request failed: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, ..."
+    },
+    {
+      "id": 9,
+      "category": "Out-of-Scope (Diabetes)",
+      "confidence": "insufficient",
+      "confidence_correct": true,
+      "avg_retrieval_score": 0.5342,
+      "keyword_hit_rate": "N/A",
+      "citations_count": 0,
+      "hallucinated_citation": false,
+      "response_time_sec": 1.43,
+      "answer_preview": "Gemini API request failed: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, ..."
+    },
+    {
+      "id": 10,
+      "category": "Out-of-Scope (Cancer)",
+      "confidence": "insufficient",
+      "confidence_correct": true,
+      "avg_retrieval_score": 0.4073,
+      "keyword_hit_rate": "N/A",
+      "citations_count": 0,
+      "hallucinated_citation": false,
+      "response_time_sec": 10.3,
+      "answer_preview": "I am sorry, but the provided text does not contain information on how cancer is diagnosed. The available evidence focuse..."
+    }
+  ]
+}
